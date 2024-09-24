@@ -3,8 +3,14 @@
 
 :root {
     --primary: #fe2c55;
+
+    //default layout
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
 }
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 html {
@@ -15,8 +21,4 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
 }
