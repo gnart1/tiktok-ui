@@ -18,15 +18,11 @@
     justify-content: space-between;
 }
 
-.action {
-    width: var(--default-layout-header-width-detail);
-    height: 100%;
-    button {
-        height: 100%;
-        width: 70px;
-        background-color: var(--primary);
-    }
-}
+// .actions {
+//     // width: var(--default-layout-header-width-detail);
+//     // height: 100%;
+//     //background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
+// }
 
 .logo {
     width: var(--default-layout-header-width-detail);
@@ -109,4 +105,7 @@
     &:active {
         background-color: rgba(22, 24, 35, 0.06);
     }
+}
+.custom-text {
+    color: rgba(22, 24, 35, 0.75);
 }
