@@ -31,11 +31,14 @@
 .logo {
     width: var(--default-layout-header-width-detail);
 }
-
+.search,
+.search-result {
+    width: var(--default-layout-header-width-detail);
+}
 .search {
     position: relative;
     height: var(--search-height);
-    width: var(--default-layout-header-width-detail);
+
     background-color: #1618230f;
     padding-left: 16px;
     border-radius: var(--search-border-radius);
@@ -73,6 +76,14 @@
         border: 1.5px solid rgba(22, 24, 35, 0.2);
         opacity: 1;
     }
+}
+.search-title {
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    line-height: 18px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
 }
 
 .clear,
