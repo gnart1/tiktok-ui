@@ -3,7 +3,7 @@ import Tippy from '@tippyjs/react';
 import HeadLessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faEllipsisVertical, faLanguage, faCircleQuestion, faKeyboard, faCloudUpload, faUser, faCoins, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faEllipsisVertical, faLanguage, faCircleQuestion, faKeyboard, faUser, faCoins, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -12,7 +12,8 @@ import styles from './Header.module.scss'
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-
+import { InboxIcon, MessageIcon, SearchIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image'
 
 
 const cx = classNames.bind(styles);
@@ -138,7 +139,7 @@ function Header() {
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadLessTippy>
@@ -148,9 +149,20 @@ function Header() {
                     {currentUser ? (
                         <div className={cx('current-user')}>
                             <>
-                                <Tippy delay={[0, 200]} content="Upload video" placement='bottom'>
+                                <Tippy delay={[0, 100]} content="Upload video" placement='bottom'>
                                     <button className={cx('action-btn')}>
-                                        <FontAwesomeIcon icon={faCloudUpload} />
+                                        <UploadIcon />
+                                    </button>
+                                </Tippy>
+                                <Tippy delay={[0, 100]} content="Message" placement='bottom'>
+                                    <button className={cx('action-btn')}>
+                                        <MessageIcon />
+                                    </button>
+                                </Tippy>
+                                <Tippy delay={[0, 100]} content="Inbox" placement='bottom'>
+                                    <button className={cx('action-btn')}>
+                                        <InboxIcon />
+                                        <span className={cx('badge')}>12</span>
                                     </button>
                                 </Tippy>
                             </>
@@ -167,7 +179,13 @@ function Header() {
                         items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <img src='https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-1/409230331_1550777295733960_7475790569764296994_n.jpg?stp=dst-jpg_s200x200&_nc_cat=106&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=1XsIGiOBxt4Q7kNvgEnHhLK&_nc_ht=scontent.fhan18-1.fna&_nc_gid=AWjw2Wn4VWJJ33bDVtxjxS6&oh=00_AYAXa8JkYlp3r1yKz2acpoOLWznzzYYro1xf2hvmmI9__g&oe=67043F40' className={cx('user-avatar')} alt='avatar' />
+
+                            <Image
+                                src='https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-1/409230331_1550777295733960_7475790569764296994_n.jpg?stp=dst-jpg_s200x200&_nc_cat=106&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=1XsIGiOBxt4Q7kNvgEnHhLK&_nc_ht=scontent.fhan18-1.fna&_nc_gid=AWjw2Wn4VWJJ33bDVtxjxS6&oh=00_AYAXa8JkYlp3r1yKz2acpoOLWznzzYYro1xf2hvmmI9__g&oe=67043F40'
+                                className={cx('user-avatar')}
+                                alt='avatar'
+                                fallback='https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-1/426337183_1866914863807453_2289062827612497101_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_ohc=WgpF1Q5WcCYQ7kNvgFgb_JT&_nc_oc=AdipNfgBdaP-82cS4Aa15DawdAkDBX6VLCy6ytoISopkNx3wuvT8xA0ALi_h9GX76D4&_nc_zt=24&_nc_ht=scontent.fhan19-1.fna&_nc_gid=AsCHVaKoCgW0eH8AUmStTA9&oh=00_AYDnyredpu4tVnfnIaJJj44cm-u4Xe08j23sXgZ_9yUbsA&oe=67C2FCF2'
+                            />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
