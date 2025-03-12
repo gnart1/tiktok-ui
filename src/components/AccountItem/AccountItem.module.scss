@@ -36,6 +36,16 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.follower {
+    font-size: 1.4rem;
+    line-height: 18px;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 20px;
+}
 
 .check {
     margin-left: 6px;
