@@ -4,6 +4,8 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faLanguage, faCircleQuestion, faKeyboard, faUser, faCoins, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import routesConfig from '~/config/routes'
 
 import images from '~/asset/images';
 import styles from './Header.module.scss'
@@ -49,6 +51,8 @@ const MENU_ITEMS = [
                     code: 'ko',
                     title: '한국인(Tiếng Hàn)'
                 },
+
+
             ]
         }
     },
@@ -104,9 +108,12 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                {/* <div className={cx('logo')}>
                     <img src={images.logo} alt='Logo-Tiktok' />
-                </div>
+                </div> */}
+                <Link to={routesConfig.home} className={cx('logo')}>
+                    <img src={images.logo} alt='Logo-Tiktok' />
+                </Link>
 
                 <Search />
 
@@ -147,6 +154,7 @@ function Header() {
                         {currentUser ? (
 
                             <Image
+
                                 src='https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-1/409230331_1550777295733960_7475790569764296994_n.jpg?stp=dst-jpg_s200x200&_nc_cat=106&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=1XsIGiOBxt4Q7kNvgEnHhLK&_nc_ht=scontent.fhan18-1.fna&_nc_gid=AWjw2Wn4VWJJ33bDVtxjxS6&oh=00_AYAXa8JkYlp3r1yKz2acpoOLWznzzYYro1xf2hvmmI9__g&oe=67043F40'
                                 className={cx('user-avatar')}
                                 alt='avatar'

@@ -15,6 +15,9 @@
 .search-result {
     width: var(--default-layout-header-width-detail);
 }
+.inputSearch {
+    font-family: var(--font-family);
+}
 .search {
     position: relative;
     height: var(--search-height);
