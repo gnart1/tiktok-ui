@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss'
 
-import * as searchService from '~/apiService/searchService'
+import * as searchService from '~/services/searchService'
 import HeadLessTippy from '@tippyjs/react/headless';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';

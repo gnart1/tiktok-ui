@@ -5,7 +5,7 @@ import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faLanguage, faCircleQuestion, faKeyboard, faUser, faCoins, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import routesConfig from '~/config/routes'
+import config from '~/config'
 
 import images from '~/asset/images';
 import styles from './Header.module.scss'
@@ -111,7 +111,7 @@ function Header() {
                 {/* <div className={cx('logo')}>
                     <img src={images.logo} alt='Logo-Tiktok' />
                 </div> */}
-                <Link to={routesConfig.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt='Logo-Tiktok' />
                 </Link>
 
