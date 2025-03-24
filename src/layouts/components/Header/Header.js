@@ -149,10 +149,8 @@ function Header() {
                         items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}
                     >
                         {currentUser ? (
-
                             <Image
-
-                                src='https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-1/409230331_1550777295733960_7475790569764296994_n.jpg?stp=dst-jpg_s200x200&_nc_cat=106&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=1XsIGiOBxt4Q7kNvgEnHhLK&_nc_ht=scontent.fhan18-1.fna&_nc_gid=AWjw2Wn4VWJJ33bDVtxjxS6&oh=00_AYAXa8JkYlp3r1yKz2acpoOLWznzzYYro1xf2hvmmI9__g&oe=67043F40'
+                                src='https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/426337183_1866914863807453_2289062827612497101_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=FWIfvzz5pP8Q7kNvgH5Tdji&_nc_oc=AdkrK2YuDiAKBjojdTlBdgnXnckXNlHmC5-gxSiM0QQqtW5mwB1pkIoTSBs96dvbPNM&_nc_zt=23&_nc_ht=scontent.fhan19-1.fna&_nc_gid=6WWTyxalfvwAjUzsWO-p8Q&oh=00_AYGzm5xNrjDhhy4FgOXqljW8Zszn3-T0VhbJk97U53MOmg&oe=67E70AB4'
                                 className={cx('user-avatar')}
                                 alt='avatar'
                             //fallback='https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-1/426337183_1866914863807453_2289062827612497101_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_ohc=WgpF1Q5WcCYQ7kNvgFgb_JT&_nc_oc=AdipNfgBdaP-82cS4Aa15DawdAkDBX6VLCy6ytoISopkNx3wuvT8xA0ALi_h9GX76D4&_nc_zt=24&_nc_ht=scontent.fhan19-1.fna&_nc_gid=AsCHVaKoCgW0eH8AUmStTA9&oh=00_AYDnyredpu4tVnfnIaJJj44cm-u4Xe08j23sXgZ_9yUbsA&oe=67C2FCF2'
