@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss'
 
@@ -17,15 +17,15 @@ const cx = classNames.bind(styles)
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true)
+    const [showResult, setShowResult] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const debounced = useDebounce(searchValue, 500)
+    const debouncedValue = useDebounce(searchValue, 500)
     const inputRef = useRef();
 
     useEffect(() => {
 
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([])
             return;
         }
@@ -33,7 +33,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true)
 
-            const result = await searchService.search(debounced);
+            const result = await searchService.search(debouncedValue);
             setSearchResult(result)
 
             setLoading(false)
@@ -43,7 +43,7 @@ function Search() {
         //XMLHttpRequests
         //fetch
 
-        //     fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
+        //     fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debouncedValue)}&type=less`)
         //         .then((res) => res.json())
         //         .then((res) => {
         //             setSearchResult(res.data);
@@ -52,10 +52,10 @@ function Search() {
         //         .catch(() => {
         //             setLoading(false)
         //         })
-        // }, [debounced]);
+        // }, [debouncedValue]);
 
         //axios/ instance:request
-    }, [debounced]);
+    }, [debouncedValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -73,6 +73,13 @@ function Search() {
             setSearchValue(searchValue);
         }
     }
+
+    const searchResultMap = useMemo(() => {
+        const resultMap = searchResult.map((result) => (
+            <AccountItem key={result.id} data={result} />
+        ))
+        return resultMap
+    }, [searchResult])
     return (
         // Using a wrapper <div> tag around the reference element solves 
         // this by creating a new parentNode context.
@@ -86,9 +93,7 @@ function Search() {
                             <h4 className={cx('search-title')}>
                                 Accounts
                             </h4>
-                            {searchResult.map((result) => (
-                                <AccountItem key={result.id} data={result} />
-                            ))}
+                            {searchResultMap}
                         </PopperWrapper>
                     </div>
                 )}
