@@ -29,7 +29,6 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
         })
     }
 
-
     const handleBack = () => {
         setHistory(pre => pre.slice(0, pre.length - 1))
     }
