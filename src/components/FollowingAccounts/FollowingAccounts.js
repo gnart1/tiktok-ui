@@ -1,28 +1,24 @@
 import PropTypes from 'prop-types';
 import classNames from "classnames/bind";
-import styles from './SuggestedAccounts.module.scss'
-import AccountItem from './AccountItem';
+import styles from './FollowingAccounts.module.scss'
+import AccountItem from '~/components/SuggestedAccounts/AccountItem'
 
 const cx = classNames.bind(styles)
 
-function SuggestedAccounts({ label, data = [], onSeeMore }) {
+function FollowingAccounts({ label, data = [], onSeeMore }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
             {data.map((result) => (
                 <AccountItem key={result.id} data={result} />
             ))}
-
-            {/* <div className={cx('more')}>
-                <MenuItem title='Xem thêm' to='/' icon={<ArrowDownIcon />} />
-            </div> */}
             <p className={cx('more')} onClick={onSeeMore}>Xem thêm</p>
         </div>
     );
 }
-SuggestedAccounts.propTypes = {
+FollowingAccounts.propTypes = {
     label: PropTypes.string.isRequired,
     data: PropTypes.array,
 
 }
-export default SuggestedAccounts;
+export default FollowingAccounts;
